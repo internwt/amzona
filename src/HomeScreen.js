@@ -2,25 +2,28 @@ import React,{useEffect, useState} from 'react'
 import data from './data'
 import {Link,withRouter} from 'react-router-dom'
 import Axios from 'axios'
+import {itemLists} from './reducer/action/productListReducer'
+import {useSelector, useDispatch} from 'react-redux'
 
 function HomeScreen(props){
-  const [product,setProducts] = useState([])
+  const [product, setProducts] = useState([])
+  const productList = useSelector(state =>state.productList)
+  const {productItems,loading, error} = productList
+  const dispatch = useDispatch()
   useEffect(()=>{
-    const fetchData = async() =>{
-    const res =  await Axios.get('http://localhost:3001/products/items')
-    setProducts(res.data.products)
-    }
-    fetchData()
+    dispatch(itemLists())
+    
   },[])
-  console.log(`setproducts`,product)
+  console.log('prodict',product)
   const handleClick =(id) =>{
     props.history.push(`/products/${id}`,{parent:"hello worldD"})
   }
-    return (
-        <div>
+      
+return loading ? <div>loading ....</div>:
+(
            <ul className="products">
               {
-                product.map((product) => {
+                productItems.map((product) => {
                 return  ( <li key={product.id}>
                     <div className="product">
                       <img className="product-image" src={product.image} alt="product" />
@@ -36,7 +39,6 @@ function HomeScreen(props){
               }
 
             </ul>
-            </div>
-    )
+)
 }
 export default withRouter(HomeScreen)

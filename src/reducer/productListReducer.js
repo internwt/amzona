@@ -1,14 +1,14 @@
-
-function productListReducer(state = { products: [] }, action) {
+import {actionTypes} from './action/productListReducer'
+function productListReducer(state = { productItems: [],loading:true}, action) {
     switch (action.type) {
-        case PRODUCT_LIST_REQUEST:
+        case actionTypes.PRODUCT_LIST_REQUEST:
             return {loading:true };
-            case PRODUCT_LIST_SUCCESSS:
+            case actionTypes.PRODUCT_LIST_SUCCESSS:
                 return {
                     loading:false,
                     productItems : action.payload
                 }
-                case PRODUCT_LIST_FAILURE : 
+                case actionTypes.PRODUCT_LIST_FAILURE : 
                 return { loading: false, error: action.payload.error}
                  default: 
                 return  state
