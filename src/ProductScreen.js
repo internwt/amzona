@@ -1,29 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import {Link } from 'react-router-dom'
 import {detailsProduct} from './reducer/action/productListReducer'
 
 function ProductScreen(props){
-    console.log(`PROPSFORINDIVIUALPRODUCT`,props.match.params.id)
-    const productDeatils = useSelector(state=>state.productDetails.productDetails)
+  const [qty, setQty] =useState(1)
+  const {loading,productDetails,error} = useSelector(state=>state.productDetails)
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(detailsProduct(props.match.params.id))
     },[])
+
+    function handleAddToCart(){
+      props.history.push(`/cart/${props.match.params.id}?setQty=${qty}`)
+    }
     return(
         <div>
             <div className="back-to-result">
         <Link to="/">Back to result</Link>
       </div>
-      {false ? (
+      {loading ? (
         <div>Loading...</div>
-      ) : false ? (
-        <div>rrr </div>
+      ) : error ? (
+        <div> product not found </div>
       ) : (
         <>
           <div className="details">
             <div className="details-image">
-              <img  alt="product"></img>
+              <img src={productDetails.image} alt="product"></img>
             </div>
             <div className="details-info">
               <ul>
@@ -33,13 +37,13 @@ function ProductScreen(props){
                 <li>
                   <a href="#reviews">
                     {/* <Rating
-                      value={product.rating}
+                      value={productDetails.rating}
                       text={product.numReviews + ' reviews'}
                     /> */}
                   </a>
                 </li>
                 <li>
-                  {/* Price: <b>'${product.price}'</b> */}
+                  Price: <b>'${productDetails.price}'</b>
                 </li>
                 <li>
                   Description:
@@ -56,28 +60,28 @@ function ProductScreen(props){
                 </li>
                 <li>
                   Qty:{' '}
-                  {/* <select
+                  <select
                     value={qty}
                     onChange={(e) => {
                       setQty(e.target.value);
                     }}
                   >
-                    {[...Array(product.countInStock).keys()].map((x) => (
+                    {[...Array(productDetails.countInStock).keys()].map((x) => (
                       <option key={x + 1} value={x + 1}>
                         {x + 1}
                       </option>
                     ))}
-                  </select> */}
+                  </select>
                 </li>
                 <li>
-                  {/* {product.countInStock > 0 && (
+                  {productDetails.countInStock > 0 && (
                     <button
                       onClick={handleAddToCart}
                       className="button primary"
                     >
                       Add to Cart
                     </button>
-                  )} */}
+                  )}
                 </li>
               </ul>
             </div>

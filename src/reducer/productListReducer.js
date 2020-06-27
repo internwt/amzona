@@ -26,7 +26,7 @@ function productDetails(state = { productDetails: {}, loading: true }, action) {
                 productDetails: action.payload
             }
         case actionTypes.PRODUCT_DETAIL_FAILURE:
-            return { loading: false, error: action.payload.error }
+            return { loading: false, error: action.payload}
         default:
             return state
 
