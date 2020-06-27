@@ -7,15 +7,15 @@ import {Link} from 'react-router-dom'
 function CartScreen(props){
     const productId = props.match.params.id
     const cartItems = useSelector(state => state.cartReducer.cartItems)
+    console.log(`cartItems`,cartItems)
     const qty = props.location.search?Number(props.location.search.split('=')[1]):1
     const dispatch = useDispatch()
     useEffect(()=>{
         if(productId) dispatch(addToCart(productId,qty))
+       
     },[])
-
     const removeProduct = (id) =>{
         dispatch(removeProductFromCart(id))
-
     }
     return <div className="cart">
     <div className="cart-list">

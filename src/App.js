@@ -9,6 +9,8 @@ import { BrowserRouter, Route,Link } from 'react-router-dom'
 import HomeScreen from './HomeScreen';
 import ProductScreen from './ProductScreen';
 import CartScreen from './cartScreen'
+import Signin from './SigninScreen'
+import SignUp from './SignUpScreen'
 function App() {
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");
@@ -48,6 +50,8 @@ function App() {
           </aside>
           <main className="main">
             <div className="content">
+              <Route path ='/signin' component={Signin} exact/>
+              <Route path ='/signup' component={SignUp} exact/>
               <Route path='/products/:id' component={ProductScreen} exact />
               <Route path='/cart/:id?' component={CartScreen} exact />
               <Route path='/' component={HomeScreen} exact />
