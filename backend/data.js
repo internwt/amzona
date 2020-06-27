@@ -6,7 +6,8 @@ export default {
         brand: "nike",
         price: 15,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 4,
     },
     {
         id: '124455',
@@ -15,7 +16,8 @@ export default {
         brand: "nike",
         price: 15,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 6,
     },
     {
         id: '1234557',
@@ -24,7 +26,8 @@ export default {
         brand: "nike",
         price: 15,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 8,
     },
     {
         id: '143455',
@@ -33,7 +36,8 @@ export default {
         brand: "nike",
         price: 15,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 4,
     },
     {
         id: '1234558',
@@ -42,7 +46,8 @@ export default {
         brand: "nike",
         price: 65,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 4,
     },
     {
         id: '123458',
@@ -51,7 +56,8 @@ export default {
         brand: "nike",
         price: 455,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 4,
     },
     {
         id: '123450',
@@ -60,7 +66,8 @@ export default {
         brand: "nike",
         price: 25,
         numReview: 4.5,
-        star: 10
+        star: 10,
+        countInStock: 4,
     }
     ]
 }
