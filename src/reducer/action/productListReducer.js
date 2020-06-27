@@ -27,6 +27,7 @@ export const detailsProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: actionTypes.PRODUCT_DETAIL_REQUEST })
         const respose = await Axios.get(`http://localhost:3001/products/details/${id}`)
+        
         dispatch({ type: actionTypes.PRODUCT_DETAIL_SUCCESSS, payload: respose.data })
     } catch (error) {
         dispatch({ type: actionTypes.PRODUCT_DETAIL_FAILURE })
