@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import {Link } from 'react-router-dom'
-import {detailsProduct} from './reducer/action/productListReducer'
+import {detailsProduct} from '../reducer/action/productListReducer'
 
 function ProductScreen(props){
   const [qty, setQty] =useState(1)
