@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react'
-import data from './data'
+import data from '../data'
 import {Link,withRouter} from 'react-router-dom'
 import Axios from 'axios'
-import {itemLists} from './reducer/action/productListReducer'
+import {itemLists} from '../reducer/action/productListReducer'
 import {useSelector, useDispatch} from 'react-redux'
 
 function HomeScreen(props){

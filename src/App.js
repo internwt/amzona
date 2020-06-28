@@ -6,11 +6,11 @@ import Header from './Header'
 import Footer from './Footer'
 import data from './data'
 import { BrowserRouter, Route,Link } from 'react-router-dom'
-import HomeScreen from './HomeScreen';
-import ProductScreen from './ProductScreen';
-import CartScreen from './cartScreen'
-import Signin from './SigninScreen'
-import SignUp from './SignUpScreen'
+import HomeScreen from './Screen/HomeScreen';
+import ProductScreen from './Screen/ProductScreen';
+import CartScreen from './Screen/cartScreen'
+import Signin from './Screen/SigninScreen'
+import SignUp from './Screen/SignUpScreen'
 function App() {
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");

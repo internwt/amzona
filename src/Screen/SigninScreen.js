@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function SignIn() {
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
     const submitHandler = () => {
         alert(`hello world`)
     }
@@ -11,12 +13,12 @@ function SignIn() {
                 <li>
                     <label for='email'>email
                       </label>
-                    <input type='text' name='email' id='email' />
+                    <input type='text' name='email' id='email' onChange={(e)=>setEmail(e.target.value)} value={email}/>
                 </li>
                 <li>
                     <label for='password'>password
                       </label>
-                    <input type='password' name='password' id='password' />
+                    <input type='password' name='password' id='password'  onChange={(e)=>setPassword(e.target.value)}/>
                 </li>
                 <li>
                     <button type='submit' className='button primary'>Submit</button>
